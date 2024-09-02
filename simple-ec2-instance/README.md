@@ -90,7 +90,7 @@ To deploy the resources defined in this Terraform project, follow these steps:
 ## Cleanup
 
 To destroy the resources created by this Terraform project, run:
-
+    
     ```bash
     terraform destroy
 
