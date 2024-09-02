@@ -89,7 +89,7 @@ To deploy the resources defined in this Terraform project, follow these steps:
 
 ## Cleanup
 
-**Destroy the infrastructure:**    
+1. **Destroy the infrastructure:**    
     
     ```bash
     terraform destroy
