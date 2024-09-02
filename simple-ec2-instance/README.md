@@ -89,9 +89,8 @@ To deploy the resources defined in this Terraform project, follow these steps:
 
 ## Cleanup
 
-To destroy the resources created by this Terraform project, run:
-    
+**Destroy the infrastructure:**    
     ```bash
-    terraform destroy
+    terraform apply
 
 Confirm the destruction by typing yes when prompted. This will remove all the resources created by the Terraform configuration.
