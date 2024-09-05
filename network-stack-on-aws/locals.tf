@@ -13,5 +13,4 @@ locals {
     service nginx start
   EOF
   )
-  }
-
+}

@@ -12,12 +12,3 @@ data "aws_ami" "amazon_linux" {
     ]
   }
 }
-
-data "template_file" "ec2_user_data" {
-  template = <<EOF
-  #cloud-config
-  runcmd:
-    - yum install -y nginx
-    - service nginx start
-    EOF
-}
