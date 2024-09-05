@@ -18,14 +18,14 @@ output "public_subnets" {
   description = "This output provides a list of IDs for the public subnets created or managed by the vpc module."
 }
 
-output "private_subnetes" {
+output "private_subnets" {
   value       = module.vpc.private_subnets
   description = "This output provides a list of IDs for the private subnets created or managed by the vpc module."
 }
 
 output "ec2_security_group_name" {
   value       = module.ec2_security_group.security_group_name
-  description = "his output returns the name of the EC2 security group created or managed by the ec2_security_group module."
+  description = "This output returns the name of the EC2 security group created or managed by the ec2_security_group module."
 }
 
 output "autoscaling_group_id" {

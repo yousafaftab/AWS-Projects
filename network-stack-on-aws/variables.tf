@@ -1,11 +1,11 @@
 variable "aws_region" {
-  description = "Region on which the infra is being deployed"
+  description = "The AWS region where the infrastructure will be deployed. Example: ap-southeast-1 (Singapore)"
   default     = "ap-southeast-1"
   type        = string
 }
 
 variable "username" {
-  description = "username that will be apllying terraform code"
+  description = "The username of the individual applying the Terraform code, used for resource tagging or tracking changes."
   default     = ""
   type        = string
 }
@@ -14,46 +14,46 @@ variable "username" {
 ########## VPC VARIABLES ########
 #################################
 variable "vpc_cidr" {
-  description = "VPC CIDR"
+  description = "The CIDR block for the Virtual Private Cloud (VPC). Defines the range of IP addresses for the VPC."
   type        = string
 }
 
 variable "availability_zones" {
-  description = "Availability zones for VPC"
+  description = "The list of Availability Zones within the region where the VPC resources (such as subnets) will be deployed."
   type        = list(string)
   default     = ["ap-southeast-1a"]
 }
 
 variable "vpc_private_subnets" {
-  description = "Private subnets of VPC"
+  description = "A list of CIDR blocks for private subnets within the VPC, typically used for internal resources not exposed to the internet."
   type        = list(string)
 }
 
 variable "vpc_public_subnets" {
-  description = "Public subnets of VPC"
+  description = "A list of CIDR blocks for public subnets within the VPC, typically used for resources that need direct internet access."
   type        = list(string)
 }
 
 variable "enable_dns_hostnames" {
-  description = "Enable DNS hostnames"
+  description = "A boolean flag to enable or disable DNS hostnames in the VPC. Required for instances that need DNS resolution."
   type        = bool
   default     = false
 }
 
 variable "enable_dns_support" {
-  description = "Enable DNS support"
+  description = "A boolean flag to enable or disable DNS support in the VPC. When enabled, the instances can resolve AWS service endpoints."
   type        = bool
   default     = false
 }
 
 variable "enable_nat_gateway" {
-  description = "Enable NAT gateway"
+  description = "A boolean flag to enable or disable a NAT gateway in the VPC, which allows instances in private subnets to access the internet."
   type        = bool
   default     = false
 }
 
 variable "single_nat_gateway" {
-  description = "Single NAT gateway"
+  description = "A boolean flag to specify if a single NAT gateway should be created for the entire VPC. Helps in reducing costs."
   type        = bool
   default     = false
 }
@@ -63,36 +63,36 @@ variable "single_nat_gateway" {
 #################################
 
 variable "instance_type" {
-  description = "Type of EC2 instance to be deployed by auto scaling group"
+  description = "The type of EC2 instance (e.g., t2.micro, t3.medium) to be deployed by the Auto Scaling Group."
   type        = string
 }
 
 variable "min_size_asg" {
-  description = "Minimum EC2 Instances required by auto scaling group"
+  description = "The minimum number of EC2 instances that should be maintained by the Auto Scaling Group."
   type        = number
   default     = 0
 }
 
 variable "max_size_asg" {
-  description = "Maximum EC2 Instances required by auto scaling group"
+  description = "The maximum number of EC2 instances that can be launched by the Auto Scaling Group."
   type        = number
   default     = 0
 }
 
 variable "desired_capacity_asg" {
-  description = "Minimum EC2 Instances Desired by auto scaling group"
+  description = "The desired number of EC2 instances that should be running in the Auto Scaling Group."
   type        = number
   default     = 0
 }
 
 variable "wait_for_capacity_timeout" {
-  description = "Wait for capacity timeout"
+  description = "The maximum time (in seconds) to wait for the Auto Scaling Group to reach the desired capacity."
   type        = number
   default     = 0
 }
 
 variable "health_check_type" {
-  description = "Type of auto scaling group health checks"
+  description = "The type of health checks (e.g., EC2, ELB) to perform on instances in the Auto Scaling Group."
   type        = string
 }
 
@@ -101,30 +101,30 @@ variable "health_check_type" {
 #################################
 
 variable "sg_description" {
-  description = "Description of EC2 Security Group"
+  description = "A description or purpose of the Security Group associated with EC2 instances."
   type        = string
 }
 
 variable "sg_ingress_cidr_block" {
-  description = "Ingress CIDR block"
+  description = "A list of CIDR blocks allowed for ingress traffic. Defines the allowed source IPs for inbound traffic."
   type        = list(string)
   default     = ["0.0.0.0/0"]
 }
 
 variable "sg_ingress_rules" {
-  description = "Ingress Rules"
+  description = "A list of ingress rules defining the allowed protocols, ports, and sources for inbound traffic."
   type        = list(string)
   default     = ["http-80-tcp"]
 }
 
 variable "sg_egress_cidr_block" {
-  description = "Egress CIDR block"
+  description = "A list of CIDR blocks allowed for egress traffic. Defines the allowed destination IPs for outbound traffic."
   type        = list(string)
   default     = ["0.0.0.0/0"]
 }
 
 variable "sg_egress_rules" {
-  description = "Egress Rules"
+  description = "A list of egress rules defining the allowed protocols, ports, and destinations for outbound traffic."
   type        = list(string)
   default     = ["all-all"]
 }
